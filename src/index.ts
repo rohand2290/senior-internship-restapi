@@ -10,12 +10,18 @@ import {
   getEntrybyIndex2023
 } from './Queries';
 
+import cors from "cors";
+
+
 const app: express.Application = express();
 
 let port: any = process.env.PORT || 8080;
 
+
+app.use(cors());
+
 app.get('/', (req, res) => {
-    res.send('Hello, TypeScript with Express!');
+    res.send('REST API for data');
 });
 
 app.get("/2019", getEntries2019);
